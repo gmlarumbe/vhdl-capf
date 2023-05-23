@@ -44,9 +44,9 @@ When number, search in the last opened (number+1) vhdl-buffers.")
   "Convert a list of lists into a single list.
 Argument L is the list to be flattened."
   (when l
-    (if (atom (first l))
-		(cons (first l) (vhdl-capf-flatten (rest l)))
-      (append (vhdl-capf-flatten (first l)) (vhdl-capf-flatten (rest l))))))
+    (if (atom (car l))
+                (cons (car l) (vhdl-capf-flatten (cdr l)))
+      (append (vhdl-capf-flatten (car l)) (vhdl-capf-flatten (cdr l))))))
 
 (defun vhdl-capf-get-vhdl-buffers (&optional nfirst)
   "Returns a list with all buffers that are in vhdl major mode.
